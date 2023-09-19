@@ -41,11 +41,9 @@ export default function Home() {
 
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-            <div>
-              <label className="block text-md font-medium leading-6 text-gray-300">
-                What do you want to know?
-              </label>
-            </div>
+          <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+            What do you want to know?
+          </h2>
 
             <div>
               <input className="block rounded-md border-0 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
