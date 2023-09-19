@@ -42,7 +42,7 @@ export default function Home() {
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            What do you want to know?
+            What do you want to know about M&S?
           </h2>
 
             <div>
