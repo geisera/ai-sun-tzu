@@ -39,10 +39,10 @@ export default function Home() {
     <main className="flex flex-col items-center justify-between p-24">
             <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" method="POST">
+          <form className="space-y-6">
             <div>
               <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
-                What do you wan
+                What do you want to know about M&S?
               </label>
               <div className="mt-2">
                 <input
