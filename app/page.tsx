@@ -41,7 +41,6 @@ export default function Home() {
 
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form className="space-y-6" action="#" method="POST">
             <div>
               <label className="block text-md font-medium leading-6 text-gray-300">
                 What do you want to know?
@@ -56,7 +55,6 @@ export default function Home() {
                 <button className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={sendQuery}>Ask M&S</button>
             </div>
             
-          </form>
         </div>
       </div>
 
