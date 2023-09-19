@@ -46,7 +46,7 @@ export default function Home() {
         result && <p>{result}</p>
       }
       { /* consider removing this button from the UI once the embeddings are created ... */}
-      {/* <button onClick={createIndexAndEmbeddings}>Create index and embeddings</button> */}
+      <button onClick={createIndexAndEmbeddings}>Create index and embeddings</button>
     </main>
   )
 }
