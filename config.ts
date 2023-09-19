@@ -1,2 +1,2 @@
-export const indexName = 'my-test-pinecone-index'
+export const indexName = 'handbook'
 export const timeout = 180000
