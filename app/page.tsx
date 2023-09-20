@@ -39,7 +39,8 @@ export default function Home() {
     <main className="flex flex-col items-center justify-between p-24">
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
 
-
+      <div className="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
+      
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <h4 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
             What do you want to know about M&S?
@@ -54,16 +55,18 @@ export default function Home() {
             </div>
             
         </div>
+        {
+          loading && <p className='text-gray-900'>Asking M&S handbook ...</p>
+        }
+        {
+          result && <p className='text-gray-900'>{result}</p>
+        }
+        {/* consider removing this button from the UI once the embeddings are created ... */}
+        {/* <button onClick={createIndexAndEmbeddings}>Create index and embeddings</button> */}
+      </div>
+  
       </div>
 
-      {
-        loading && <p>Asking M&S handbook ...</p>
-      }
-      {
-        result && <p>{result}</p>
-      }
-      {/* consider removing this button from the UI once the embeddings are created ... */}
-      {/* <button onClick={createIndexAndEmbeddings}>Create index and embeddings</button> */}
     </main>
   )
 }
