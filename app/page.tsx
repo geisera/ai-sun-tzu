@@ -36,38 +36,34 @@ export default function Home() {
     }
   }
   return (
-    <main className="flex flex-col h-screen items-center justify-between bg-blue-300 p-24">
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <main className="flex flex-col h-screen items-center justify-between bg-blue-300">
+      <div className="flex min-h-full max-w-md flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <div className="border-b rounded-lg bg-white min-w-full px-4 py-5">
+          <div className="mt-10 w-full">
+            <h4 className="mt-10 text-center text-xl font-bold leading-9 tracking-tight text-gray-900">
+              The M&S AI Employee Handbook
+            </h4>
 
-      <div className="border-b border-blue-900 rounded-lg bg-white max-w-md px-4 py-5 sm:px-6">
-      
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <h4 className="mt-10 text-center text-xl font-bold leading-9 tracking-tight text-gray-900">
-            The M&S AI Employee Handbook
-          </h4>
-
-            <div>
-              <input className="block w-full rounded-md border-0 my-5 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  onChange={e => setQuery(e.target.value)} />
-            </div>
-            <div>
-                <button className="flex w-full justify-center rounded-md bg-blue-900 mb-5 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={sendQuery}>
-                  What do you want to know?</button>
-            </div>
-            
+              <div>
+                <input className="block w-full rounded-md border-0 my-5 px-3 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    onChange={e => setQuery(e.target.value)} />
+              </div>
+              <div>
+                  <button className="flex w-full justify-center rounded-md bg-blue-900 mb-5 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={sendQuery}>
+                    What do you want to know?</button>
+              </div>
+              
+          </div>
+          {
+            loading && <p className='text-gray-900'>Asking M&S handbook ...</p>
+          }
+          {
+            result && <p className='text-gray-900'>{result}</p>
+          }
+          {/* consider removing this button from the UI once the embeddings are created ... */}
+          {/* <button onClick={createIndexAndEmbeddings}>Create index and embeddings</button> */}
         </div>
-        {
-          loading && <p className='text-gray-900'>Asking M&S handbook ...</p>
-        }
-        {
-          result && <p className='text-gray-900'>{result}</p>
-        }
-        {/* consider removing this button from the UI once the embeddings are created ... */}
-        {/* <button onClick={createIndexAndEmbeddings}>Create index and embeddings</button> */}
       </div>
-  
-      </div>
-
     </main>
   )
 }
