@@ -39,10 +39,10 @@ export default function Home() {
     <main className="flex flex-col items-center justify-between p-24">
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
 
-      <div className="border-b border-gray-200 bg-white px-4 py-5 sm:px-6">
+      <div className="border-b border-gray-200 bg-white max-w-md px-4 py-5 sm:px-6">
       
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <h4 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+          <h4 className="mt-10 text-center text-xl font-bold leading-9 tracking-tight text-gray-900">
             What do you want to know about M&S?
           </h4>
 
@@ -51,7 +51,7 @@ export default function Home() {
                   onChange={e => setQuery(e.target.value)} />
             </div>
             <div>
-                <button className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={sendQuery}>Ask M&S</button>
+                <button className="flex w-full justify-center rounded-md bg-blue-900 mb-5 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={sendQuery}>Ask M&S</button>
             </div>
             
         </div>
