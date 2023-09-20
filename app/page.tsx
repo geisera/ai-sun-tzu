@@ -43,7 +43,7 @@ export default function Home() {
       
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <h4 className="mt-10 text-center text-xl font-bold leading-9 tracking-tight text-gray-900">
-            What do you want to know?
+            The M&S AI Employee Handbook
           </h4>
 
             <div>
@@ -56,7 +56,7 @@ export default function Home() {
             
         </div>
         {
-          loading && <p className='text-gray-900'>Asking M&S handbook ...</p>
+          loading && <p className='text-gray-900'>What do you want to know?</p>
         }
         {
           result && <p className='text-gray-900'>{result}</p>
