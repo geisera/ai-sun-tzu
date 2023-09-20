@@ -39,7 +39,7 @@ export default function Home() {
     <main className="flex flex-col h-screen items-center justify-between bg-blue-300 p-24">
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
 
-      <div className="border-b border-gray-200 bg-white max-w-md px-4 py-5 sm:px-6">
+      <div className="border-b border-blue-900 rounded-lg bg-white max-w-md px-4 py-5 sm:px-6">
       
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <h4 className="mt-10 text-center text-xl font-bold leading-9 tracking-tight text-gray-900">
