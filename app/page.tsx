@@ -36,7 +36,7 @@ export default function Home() {
     }
   }
   return (
-    <main className="flex flex-col h-screen items-center justify-between p-24">
+    <main className="flex flex-col h-screen items-center justify-between bg-blue-300 p-24">
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
 
       <div className="border-b border-gray-200 bg-white max-w-md px-4 py-5 sm:px-6">
