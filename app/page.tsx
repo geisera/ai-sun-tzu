@@ -3,6 +3,8 @@ import {
   useState
 } from 'react'
 
+import { PongSpinner } from "react-spinners-kit";
+
 export default function Home() {
   const [query, setQuery] = useState('')
   const [result, setResult] = useState('')
@@ -25,7 +27,7 @@ export default function Home() {
     try {
       const result = await fetch('/api/read', {
         method: "POST",
-        body: JSON.stringify(query)
+        body: JSON.stringify(query + ' in the handbook')
       })
       const json = await result.json()
       setResult(json.data)
@@ -54,9 +56,11 @@ export default function Home() {
               </div>
               
           </div>
+          <div className='flex justify-center'>
           {
-            loading && <p className='text-gray-900'>Asking M&S handbook...</p>
+            <PongSpinner size={30} color="#002c77" loading={loading} />
           }
+          </div>
           {
             result && <p className='text-gray-900'>{result}</p>
           }
