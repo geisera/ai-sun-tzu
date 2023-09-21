@@ -37,7 +37,7 @@ To run the app locally, follow these steps:
 1. Clone this repo
 
 ```sh
-git clone git@github.com:dabit3/semantic-search-nextjs-pinecone-langchain-chatgpt.git
+git clone git@github.com:geisera/ai-handbook.git
 ```
 
 2. Change into the directory and install the dependencies using either NPM or Yarn
