@@ -41,7 +41,7 @@ export default function Home() {
         <div className="border-b rounded-lg bg-white min-w-full px-4 py-5">
           <div className="mt-10 w-full">
             <h4 className="mt-10 text-center text-xl font-bold leading-9 tracking-tight text-gray-900">
-              The M&S AI Employee Handbook
+              M&S - AI Employee Handbook
             </h4>
 
               <div>
@@ -55,7 +55,7 @@ export default function Home() {
               
           </div>
           {
-            loading && <p className='text-gray-900'>Asking M&S handbook ...</p>
+            loading && <p className='text-gray-900'>Asking M&S handbook...</p>
           }
           {
             result && <p className='text-gray-900'>{result}</p>
