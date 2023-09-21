@@ -20,6 +20,11 @@ export default function Home() {
       console.log('err:', err)
     }
   }
+  const handleKeyPress = (event) => {
+    if ( event.keycode === 13 || event.which === 13 ){
+      sendQuery();
+    }
+  }
   async function sendQuery() {
     if (!query) return
     setResult('')
@@ -51,7 +56,8 @@ export default function Home() {
                     onChange={e => setQuery(e.target.value)} />
               </div>
               <div>
-                  <button className="flex w-full justify-center rounded-md bg-blue-900 mb-5 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" onClick={sendQuery}>
+                  <button className="flex w-full justify-center rounded-md bg-blue-900 mb-5 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" 
+                    onClick={sendQuery}>
                     What do you want to know?</button>
               </div>
               
