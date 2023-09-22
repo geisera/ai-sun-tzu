@@ -39,11 +39,12 @@ export const queryPineconeVectorStoreAndQueryLLM = async (
       .join(" ");
     // 9. Execute the chain with input documents and question
     const result = await chain.call({
+      model: 'gpt-3.5-turbo',
       input_documents: [new Document({ pageContent: concatenatedPageContent })],
       question: question,
     });
     // 10. Log the answer
-    console.log(`Answer: ${result.text}`);
+    console.log(`Answer: ${result.text} Model: ${JSON.stringify(result)}`);
     return result.text
   } else {
     // 11. Log that there are no matches, so GPT-3 will not be queried
