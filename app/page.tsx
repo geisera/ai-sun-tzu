@@ -46,7 +46,14 @@ export default function Home() {
   return (
     <main className="flex flex-col h-screen items-center justify-between bg-blue-300">
       <div className="flex min-h-full max-w-md flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="border-b rounded-lg bg-white min-w-full px-4 py-5">
+        <div className="
+          border-b rounded-lg 
+          bg-white 
+          shadow-2xl
+          border-blue-900
+          min-w-full 
+          px-4 
+          py-5">
           <div className="mt-10 w-full">
             <h4 className="
               mt-10 
@@ -73,9 +80,10 @@ export default function Home() {
                   ring-1 
                   ring-inset 
                   ring-blue-900 
+                  ring-opacity-55
                   placeholder:text-gray-400 
                   focus:ring-2 focus:ring-inset 
-                  focus:ring-indigo-600 
+                  focus:ring-blue-600 
                   sm:text-sm 
                   sm:leading-6"
                 onChange={e => setQuery(e.target.value)}
@@ -83,7 +91,26 @@ export default function Home() {
                 onKeyDown={e => handleKeyDown(e)} />
             </div>
             <div>
-                <button className="flex w-full justify-center rounded-md bg-blue-900 mb-5 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" 
+                <button 
+                  className="
+                    flex 
+                    w-full 
+                    justify-center 
+                    rounded-md 
+                    bg-blue-900 
+                    mb-5 
+                    px-3 
+                    py-1.5 
+                    text-sm 
+                    font-semibold 
+                    leading-6 
+                    text-white 
+                    shadow-sm 
+                    hover:opacity-90 
+                    focus-visible:outline 
+                    focus-visible:outline-2 
+                    focus-visible:outline-offset-2 
+                    focus-visible:outline-blue-600" 
                   onClick={sendQuery}>
                   What do you want to know?</button>
             </div>
