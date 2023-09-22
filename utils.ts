@@ -39,7 +39,6 @@ export const queryPineconeVectorStoreAndQueryLLM = async (
       .join(" ");
     // 9. Execute the chain with input documents and question
     const result = await chain.call({
-      model: 'gpt-3.5-turbo',
       input_documents: [new Document({ pageContent: concatenatedPageContent })],
       question: question,
     });
