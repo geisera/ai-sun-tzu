@@ -29,7 +29,7 @@ To run the app locally, follow these steps:
 1. Clone this repo
 
 ```sh
-git clone git@github.com:geisera/ai-handbook.git
+git clone git@github.com:geisera/ai-sun-tzu.git
 ```
 
 2. CD into the directory and install the dependencies using either NPM or Yarn
