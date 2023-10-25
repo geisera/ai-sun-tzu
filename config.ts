@@ -1,2 +1,2 @@
-export const indexName = 'handbook'
+export const indexName = 'sun-tzu'
 export const timeout = 180000
