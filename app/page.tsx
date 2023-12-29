@@ -85,7 +85,9 @@ export default function Home() {
                 >{ query }</h4>
             }
             {
-              result && <p className='mx-auto 
+              result && <p 
+              className='
+              mx-auto 
               mb-3
               max-w-2xl 
               text-center 
