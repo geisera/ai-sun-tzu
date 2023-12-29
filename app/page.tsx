@@ -85,7 +85,15 @@ export default function Home() {
                 >{ query }</h4>
             }
             {
-              result && <p className=''>{ result }</p>
+              result && <p className='mx-auto 
+              mb-3
+              max-w-2xl 
+              text-center 
+              text-xl 
+              font-bold 
+              tracking-tight 
+              text-white 
+              sm:text-4xl'>{ result }</p>
             }
             <div className='flex justify-center mt-20'>
             { 
