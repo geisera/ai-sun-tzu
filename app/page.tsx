@@ -1,3 +1,105 @@
+'use client'
+import { useEffect, useState } from 'react'
+import { PongSpinner } from "react-spinners-kit";
+
+export default function Home() {
+  const [query, setQuery] = useState('')
+  const [result, setResult] = useState('')
+  const [loading, setLoading] = useState(false)
+  async function createIndexAndEmbeddings() {
+    try {
+      const result = await fetch('/api/setup', {
+        method: "POST"
+      })
+      const json = await result.json()
+      console.log('result: ', json)
+    } catch (err) {
+      console.log('err:', err)
+    }
+  }
+  const handleKeyDown = (event) => {
+    if( event.keycode === 13 || event.which === 13 ){
+      event.target.value = '';
+      sendQuery()
+    }
+  }
+  async function sendQuery() {
+    if (!query) return
+    setResult('')
+    setLoading(true)
+    try {
+      const result = await fetch('/api/read', {
+        method: "POST",
+        body: JSON.stringify(query)
+      })
+      const json = await result.json()
+      setResult(json.data)
+      setLoading(false)
+    } catch (err) {
+      console.log('err:', err)
+      setLoading(false)
+    }
+  }
+  async function reset(event) {
+    if (event.target.value != '') {
+      setResult('')
+    }
+  }
+  return (
+    <main className="">
+      <div className="min-h-screen relative overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32">
+        <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          The Wisdom of Niccolo Machiavelli
+        </h2>
+        <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
+          Machiavelli&apos;s ancient treatise transcends its Florentine origins. Its wisdom overflows the realms of politics, and make of it a guide for mastering your competition in any domain.
+        </p>
+        <div className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
+          <div className="mb-5">
+            <input 
+              className="min-w-0 flex-auto rounded-md border-0 bg-white/5 mx-2 my-2 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+              onChange={e => setQuery(e.target.value)}
+              tabIndex={0} 
+              onKeyDown={e => handleKeyDown(e)}
+              onSelect={e => reset(e)}/>
+
+            <button 
+              className="flex-none rounded-md bg-white mx-2 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" 
+              onClick={sendQuery}
+            > Ask Machiavelli
+            </button>
+          </div>
+          <div className="mx-auto mt-2 max-w-xl text-left text-lg leading-8 text-gray-300">
+            {
+              query && <h4 
+              className='
+                mx-auto 
+                mb-3
+                max-w-2xl 
+                text-center 
+                text-xl 
+                font-bold 
+                tracking-tight 
+                text-white 
+                sm:text-4xl'
+                >{ query }</h4>
+            }
+            {
+              result && <p className=''>{ result }</p>
+            }
+            <div className='flex justify-center mt-20'>
+            { 
+              <PongSpinner size={60} color="#ffffff" loading={loading} />
+            }
+            </div>
+            {/* consider removing this button from the UI once the embeddings are created ... */}
+            {/*<button onClick={createIndexAndEmbeddings}>Create index and embeddings</button>*/}
+          </div>
+        </div>
+      </div>
+    </main>
+  )
+}
 // 'use client'
 // import { Fragment } from 'react'
 // import { Disclosure, Menu, Transition } from '@headlessui/react'
@@ -208,105 +310,4 @@
 //   )
 // }
 
-'use client'
-import { useEffect, useState } from 'react'
-import { PongSpinner } from "react-spinners-kit";
 
-export default function Home() {
-  const [query, setQuery] = useState('')
-  const [result, setResult] = useState('')
-  const [loading, setLoading] = useState(false)
-  async function createIndexAndEmbeddings() {
-    try {
-      const result = await fetch('/api/setup', {
-        method: "POST"
-      })
-      const json = await result.json()
-      console.log('result: ', json)
-    } catch (err) {
-      console.log('err:', err)
-    }
-  }
-  const handleKeyDown = (event) => {
-    if( event.keycode === 13 || event.which === 13 ){
-      event.target.value = '';
-      sendQuery()
-    }
-  }
-  async function sendQuery() {
-    if (!query) return
-    setResult('')
-    setLoading(true)
-    try {
-      const result = await fetch('/api/read', {
-        method: "POST",
-        body: JSON.stringify(query)
-      })
-      const json = await result.json()
-      setResult(json.data)
-      setLoading(false)
-    } catch (err) {
-      console.log('err:', err)
-      setLoading(false)
-    }
-  }
-  async function reset(event) {
-    if (event.target.value != '') {
-      setResult('')
-    }
-  }
-  return (
-    <main className="">
-      <div className="min-h-screen relative overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32">
-        <h2 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
-          The Wisdom of Niccolo Machiavelli
-        </h2>
-        <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
-          Machiavelli&apos;s ancient treatise transcends its Florentine origins. Its wisdom overflows the realms of politics, and make of it a guide for mastering your competition in any domain.
-        </p>
-        <div className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
-          <div className="mb-5">
-            <input 
-              className="min-w-0 flex-auto rounded-md border-0 bg-white/5 mx-2 my-2 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
-              onChange={e => setQuery(e.target.value)}
-              tabIndex={0} 
-              onKeyDown={e => handleKeyDown(e)}
-              onSelect={e => reset(e)}/>
-
-            <button 
-              className="flex-none rounded-md bg-white mx-2 px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" 
-              onClick={sendQuery}
-            > Ask Machiavelli
-            </button>
-          </div>
-          <div className="mx-auto mt-2 max-w-xl text-left text-lg leading-8 text-gray-300">
-            {
-              query && <h4 
-              className='
-                mx-auto 
-                mb-3
-                max-w-2xl 
-                text-center 
-                text-xl 
-                font-bold 
-                tracking-tight 
-                text-white 
-                sm:text-4xl'
-                >{ query }</h4>
-            }
-            {
-              result && <p className=''>{ result }</p>
-            }
-            <div className='flex justify-center mt-20'>
-            { 
-              <PongSpinner size={60} color="#ffffff" loading={loading} />
-            }
-            </div>
-            {/* consider removing this button from the UI once the embeddings are created ... */}
-            {/*<button onClick={createIndexAndEmbeddings}>Create index and embeddings</button>*/}
-          </div>
-        </div>
-      </div>
-    </main>
-  )
-}
